@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products Sabiha – Everyday Style with a Touch of Grace
+    </title>
+    <!-- Fav -->
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Tailwind Css -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text&display=swap" rel="stylesheet">
+    <!-- Alpine.js for interactivity -->
+    <!-- <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script> -->
+
+
+    <script src="js/script.js"></script>
+</head>
+
+<body class="bg-gray-50 text-gray-800 font-poppins">
+    <!-- Header -->
+    <header class="bg-white  sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+            <a href="index.html"
+                class="flex items-center space-x-2  group relative outline-none   px-2 py-1 rounded-lg transition duration-200    ">
+                <img src="assets/logo.png" alt="Sabiha Logo"
+                    class="h-10 w-10 border-2 border-pink-100 rounded-full shadow transform group-hover:scale-110 transition duration-200">
+                <span
+                    class="text-xl font-semibold text-gray-900 group-hover:text-pink-600 transition duration-200 logo-text">Sabiha</span>
+
+            </a>
+            <nav class="hidden md:flex">
+                <ul class="flex space-x-8 items-center">
+                    <li>
+                        <a href="index.html"
+                            class="text-gray-700 hover:text-pink-600 font-medium transition-colors duration-200">Home</a>
+                    </li>
+                    <li>
+                        <a href="about.html"
+                            class="text-gray-700 hover:text-pink-600 font-medium transition-colors duration-200">About</a>
+                    </li>
+                    <li>
+                        <a href="products.html"
+                            class="text-gray-700 hover:text-pink-600 font-medium transition-colors duration-200">Products</a>
+                    </li>
+                    <li>
+                        <a href="contact.html"
+                            class="text-gray-700 hover:text-pink-600 font-medium transition-colors duration-200">Contact</a>
+                    </li>
+                    <li>
+                        <a href="cart.html"
+                            class="text-gray-700 hover:text-pink-600 transition-colors duration-200 flex items-center">
+                            <i class="fas fa-shopping-cart mr-1"></i> Cart
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <button
+                    class="hidden md:inline-block px-4 py-2 rounded-lg bg-pink-500 text-white font-semibold hover:bg-pink-600 transition duration-200">Log
+                    In</button>
+                <button
+                    class="hidden md:inline-block px-4 py-2 rounded-lg border border-pink-500 text-pink-500 font-semibold hover:bg-pink-50 transition duration-200">Sign
+                    Up</button>
+                <!-- Mobile menu button -->
+                <button id="menu-btn" class="md:hidden text-gray-700 hover:text-pink-600 focus:outline-none">
+                    <i class="fas fa-bars fa-lg"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden bg-white shadow-lg absolute w-full left-0 top-full hidden">
+            <ul class="flex flex-col space-y-2 px-6 py-4">
+                <li>
+                    <a href="index.html"
+                        class="text-gray-700 hover:text-pink-600 font-medium transition-colors duration-200">Home</a>
+                </li>
+                <li>
+                    <a href="about.html"
+                        class="text-gray-700 hover:text-pink-600 font-medium transition-colors duration-200">About</a>
+                </li>
+                <li>
+                    <a href="products.html"
+                        class="text-gray-700 hover:text-pink-600 font-medium transition-colors duration-200">Products</a>
+                </li>
+                <li>
+                    <a href="contact.html"
+                        class="text-gray-700 hover:text-pink-600 font-medium transition-colors duration-200">Contact</a>
+                </li>
+                <li>
+                    <a href="cart.html"
+                        class="text-gray-700 hover:text-pink-600 transition-colors duration-200 flex items-center">
+                        <i class="fas fa-shopping-cart mr-1"></i> Cart
+                    </a>
+                </li>
+                <li>
+                    <button
+                        class="w-full px-4 py-2 rounded-lg bg-pink-500 text-white font-semibold hover:bg-pink-600 transition duration-200 mt-2">Log
+                        In</button>
+                </li>
+                <li>
+                    <button
+                        class="w-full px-4 py-2 rounded-lg border border-pink-500 text-pink-500 font-semibold hover:bg-pink-50 transition duration-200">Sign
+                        Up</button>
+                </li>
+            </ul>
+        </div>
+
+    </header>
+
+
+    <!-- Main -->
+    <!-- Search -->
+    <section class="container mx-auto px-4 py-8">
+        <div
+            class="bg-white rounded-lg shadow p-6 flex flex-col md:flex-row md:items-center md:space-x-8 space-y-6 md:space-y-0">
+            <!-- Search Bar -->
+            <div class="flex-1">
+                <label for="search" class="block text-sm font-medium text-gray-700 mb-2">Search Products</label>
+                <input type="text" id="search" name="search" placeholder="Search by name, style, etc."
+                    class="w-full px-4 py-2 border border-pink-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-400 transition" />
+            </div>
+            <!-- Category Filter -->
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Category</label>
+                <select
+                    class="px-4 py-2 border border-pink-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-400 transition">
+                    <option value="">All</option>
+                    <option value="sarees">Sarees</option>
+                    <option value="three-pieces">Three-Pieces</option>
+                    <option value="two-pieces">Two-Pieces</option>
+                </select>
+            </div>
+            <!-- Price Range Slider -->
+            <div class="w-48">
+                <label class="block text-sm font-medium text-gray-700 mb-2">Price Range</label>
+                <input type="range" min="500" max="5000" step="100" value="2000" class="w-full accent-pink-500"
+                    id="priceRange" />
+                <div class="flex justify-between text-xs text-gray-500 mt-1">
+                    <span>৳500</span>
+                    <span id="priceValue">৳2000</span>
+                    <span>৳5000</span>
+                </div>
+            </div>
+            <!-- Color Options -->
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Color</label>
+                <div class="flex space-x-2">
+                    <button
+                        class="w-6 h-6 rounded-full border-2 border-gray-300 bg-red-500 focus:ring-2 focus:ring-pink-400"
+                        title="Red"></button>
+                    <button
+                        class="w-6 h-6 rounded-full border-2 border-gray-300 bg-blue-500 focus:ring-2 focus:ring-pink-400"
+                        title="Blue"></button>
+                    <button
+                        class="w-6 h-6 rounded-full border-2 border-gray-300 bg-green-500 focus:ring-2 focus:ring-pink-400"
+                        title="Green"></button>
+                    <button
+                        class="w-6 h-6 rounded-full border-2 border-gray-300 bg-yellow-400 focus:ring-2 focus:ring-pink-400"
+                        title="Yellow"></button>
+                    <button
+                        class="w-6 h-6 rounded-full border-2 border-gray-300 bg-pink-500 focus:ring-2 focus:ring-pink-400"
+                        title="Pink"></button>
+                </div>
+            </div>
+            <!-- Size Options -->
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Size</label>
+                <select
+                    class="px-4 py-2 border border-pink-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-400 transition">
+                    <option value="">All</option>
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                </select>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Grid List -->
+
+    <section class="container mx-auto px-4 py-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Product Card 1 -->
+            <div
+                class="bg-white rounded-xl shadow hover:shadow-lg transition duration-200 overflow-hidden group flex flex-col">
+                <a href="/productdetails.html" class="block overflow-hidden">
+                    <img src="assets/hero/1.jpg" alt="Elegant Cotton Saree"
+                        class="w-full h-64 object-cover transform group-hover:scale-105 transition duration-300" />
+                </a>
+                <div class="p-5 flex-1 flex flex-col">
+                    <h3 class="text-lg font-semibold mb-2 text-gray-900">Elegant Cotton Saree</h3>
+                    <p
+                        class="text-pink-600 font-bold text-xl mb-2 opacity-80 group-hover:opacity-100 transition duration-200">
+                        ৳1,950
+                    </p>
+                    <p class="text-gray-600 text-sm mb-4 flex-1">Soft cotton with intricate handwork, perfect for daily
+                        elegance.</p>
+                    <div class="flex items-center justify-between mt-auto">
+                        <button
+                            class="px-4 py-2 rounded-lg bg-pink-500 text-white font-semibold hover:bg-pink-600 transition duration-200">
+                            Add to Cart
+                        </button>
+                        <a href="product1.html" class="text-pink-500 hover:underline font-medium ml-2">View Details</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Product Card 2 -->
+            <div
+                class="bg-white rounded-xl shadow hover:shadow-lg transition duration-200 overflow-hidden group flex flex-col">
+                <a href="productdetails.html" class="block overflow-hidden">
+                    <img src="assets/features/666.jpg" alt="Classic Three-Piece"
+                        class="w-full h-64 object-cover transform group-hover:scale-105 transition duration-300" />
+                </a>
+                <div class="p-5 flex-1 flex flex-col">
+                    <h3 class="text-lg font-semibold mb-2 text-gray-900">Classic Three-Piece</h3>
+                    <p
+                        class="text-pink-600 font-bold text-xl mb-2 opacity-80 group-hover:opacity-100 transition duration-200">
+                        ৳2,450
+                    </p>
+                    <p class="text-gray-600 text-sm mb-4 flex-1">Premium muslin with vibrant embroidery, festive and
+                        graceful.</p>
+                    <div class="flex items-center justify-between mt-auto">
+                        <button
+                            class="px-4 py-2 rounded-lg bg-pink-500 text-white font-semibold hover:bg-pink-600 transition duration-200">
+                            Add to Cart
+                        </button>
+                        <a href="product2.html" class="text-pink-500 hover:underline font-medium ml-2">View Details</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Product Card 3 -->
+            <div
+                class="bg-white rounded-xl shadow hover:shadow-lg transition duration-200 overflow-hidden group flex flex-col">
+                <a href="productdetails.html" class="block overflow-hidden">
+                    <img src="assets/features/6666.jpg" alt="Trendy Two-Piece"
+                        class="w-full h-64 object-cover transform group-hover:scale-105 transition duration-300" />
+                </a>
+                <div class="p-5 flex-1 flex flex-col">
+                    <h3 class="text-lg font-semibold mb-2 text-gray-900">Trendy Two-Piece</h3>
+                    <p
+                        class="text-pink-600 font-bold text-xl mb-2 opacity-80 group-hover:opacity-100 transition duration-200">
+                        ৳1,650
+                    </p>
+                    <p class="text-gray-600 text-sm mb-4 flex-1">Lightweight linen, modern prints, ideal for summer
+                        outings.</p>
+                    <div class="flex items-center justify-between mt-auto">
+                        <button
+                            class="px-4 py-2 rounded-lg bg-pink-500 text-white font-semibold hover:bg-pink-600 transition duration-200">
+                            Add to Cart
+                        </button>
+                        <a href="product3.html" class="text-pink-500 hover:underline font-medium ml-2">View Details</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Add more product cards as needed -->
+        </div>
+    </section>
+
+    <!-- ssorting -->
+    <section class="container mx-auto px-4 py-4 flex justify-between items-center">
+        <div class="flex items-center space-x-3">
+            <label for="sort" class="text-sm font-medium text-gray-700">Sort by:</label>
+            <select id="sort"
+                class="px-4 py-2 border border-pink-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-400 transition">
+                <option value="price-asc">Price: Low to High</option>
+                <option value="price-desc">Price: High to Low</option>
+                <option value="popularity">Popularity (Bestselling)</option>
+                <option value="newest">Newest Arrivals</option>
+                <option value="rating">Customer Ratings</option>
+            </select>
+        </div>
+        <!-- Pagination -->
+        <div class="flex items-center space-x-2">
+            <button
+                class="px-3 py-1 rounded-lg bg-pink-100 text-pink-600 font-semibold hover:bg-pink-200 transition disabled:opacity-50"
+                id="prevPage" disabled>
+                &lt; Prev
+            </button>
+            <span class="text-sm text-gray-700" id="pageInfo">Page 1 of 5</span>
+            <button
+                class="px-3 py-1 rounded-lg bg-pink-100 text-pink-600 font-semibold hover:bg-pink-200 transition disabled:opacity-50"
+                id="nextPage">
+                Next &gt;
+            </button>
+        </div>
+    </section>
+
+
+    <!-- Categories -->
+    <section class="container mx-auto px-4 py-6">
+        <h2 class="text-2xl font-bold mb-4 text-gray-900">Browse Our Categories:</h2>
+        <div class="flex flex-wrap gap-6 justify-center">
+            <!-- Sarees -->
+            <a href="products.html?category=sarees"
+                class="flex flex-col items-center px-6 py-4 bg-pink-50 rounded-xl shadow hover:bg-pink-100 transition group">
+                <span class="text-pink-500 mb-2">
+                    <i class="fas fa-female fa-2x"></i>
+                </span>
+                <span class="font-semibold text-lg text-gray-800 group-hover:text-pink-600">Sarees</span>
+            </a>
+            <!-- Three-Pieces -->
+            <a href="products.html?category=three-pieces"
+                class="flex flex-col items-center px-6 py-4 bg-pink-50 rounded-xl shadow hover:bg-pink-100 transition group">
+                <span class="text-pink-500 mb-2">
+                    <i class="fas fa-tshirt fa-2x"></i>
+                </span>
+                <span class="font-semibold text-lg text-gray-800 group-hover:text-pink-600">Three-Pieces</span>
+            </a>
+            <!-- Two-Pieces -->
+            <a href="products.html?category=two-pieces"
+                class="flex flex-col items-center px-6 py-4 bg-pink-50 rounded-xl shadow hover:bg-pink-100 transition group">
+                <span class="text-pink-500 mb-2">
+                    <i class="fas fa-shirt fa-2x"></i>
+                </span>
+                <span class="font-semibold text-lg text-gray-800 group-hover:text-pink-600">Two-Pieces</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer  -->
+
+    <footer class="bg-pink-700 text-white pt-10 pb-6">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+
+            <div>
+                <img src="assets/logo.png" alt="footer Logo" class="w-32 mb-4">
+                <h3 class="text-2xl font-serif font-bold mb-4" style="font-family: 'DM Serif Text', serif;">
+                    Sabiha
+                </h3>
+                <p class="text-pink-100 max-w-xs">
+                    Embrace Elegance with Timeless Bengali Apparel. Handcrafted Sarees, Three-Pieces &amp; Two-Pieces,
+                    Made for
+                </p>
+            </div>
+            <!-- Essential Links -->
+            <div>
+                <h4 class="font-semibold text-lg mb-3">Quick Links</h4>
+                <ul class="space-y-2">
+                    <li>
+                        <a href="#contact"
+                            class="hover:underline transition-colors duration-200 hover:text-pink-300 focus:text-pink-300 focus:outline-none">Contact
+                            Us</a>
+                    </li>
+                    <li>
+                        <a href="#shipping"
+                            class="hover:underline transition-colors duration-200 hover:text-pink-300 focus:text-pink-300 focus:outline-none">Shipping
+                            &amp; Returns</a>
+                    </li>
+                    <li>
+                        <a href="#privacy"
+                            class="hover:underline transition-colors duration-200 hover:text-pink-300 focus:text-pink-300 focus:outline-none">Privacy
+                            Policy</a>
+                    </li>
+                    <li>
+                        <a href="#faqs"
+                            class="hover:underline transition-colors duration-200 hover:text-pink-300 focus:text-pink-300 focus:outline-none">FAQs</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- Follow Us -->
+            <div>
+                <h4 class="font-semibold text-lg mb-3">Follow Us</h4>
+                <div class="flex space-x-4">
+                    <a href="#" aria-label="Facebook"
+                        class="hover:text-pink-300 focus:text-pink-300 transition-colors duration-200 focus:outline-none">
+                        <i class="fab fa-facebook fa-lg"></i>
+                    </a>
+                    <a href="#" aria-label="Instagram"
+                        class="hover:text-pink-300 focus:text-pink-300 transition-colors duration-200 focus:outline-none">
+                        <i class="fab fa-instagram fa-lg"></i>
+                    </a>
+                    <a href="#" aria-label="Twitter"
+                        class="hover:text-pink-300 focus:text-pink-300 transition-colors duration-200 focus:outline-none">
+                        <i class="fab fa-twitter fa-lg"></i>
+                    </a>
+                    <a href="#" aria-label="Pinterest"
+                        class="hover:text-pink-300 focus:text-pink-300 transition-colors duration-200 focus:outline-none">
+                        <i class="fab fa-pinterest fa-lg"></i>
+                    </a>
+                </div>
+                <form class="mt-4 flex flex-col sm:flex-row items-center gap-2" id="footer-newsletter-form">
+                    <input type="email" placeholder="Your email" required
+                        class="px-3 py-2 rounded-lg border border-pink-300 text-gray-800 focus:outline-none focus:ring-2 focus:ring-pink-400 transition w-full sm:w-auto" />
+                    <button type="submit"
+                        class="px-4 py-2 rounded-lg bg-pink-500 text-white font-semibold hover:bg-pink-600 transition duration-200">
+                        Subscribe
+                    </button>
+                </form>
+                <span id="footer-newsletter-msg" class="block mt-2 text-xs text-pink-100"></span>
+            </div>
+            <!-- Payment Security -->
+
+        </div>
+        <div class="container mx-auto px-4 mt-8 border-t border-pink-600 pt-4 text-center text-sm text-pink-100">
+            &copy; 2024 Sabiha. All rights reserved.
+        </div>
+
+    </footer>
+
+
+
+    <!-- JS -->
+    <script src="js/products.js"></script>
+</body>
+
+</html>

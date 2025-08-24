@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sabiha – Everyday Style with a Touch of Grace
+    </title>
+    <!-- Fav -->
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Tailwind Css -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text&display=swap" rel="stylesheet">
+    <!-- Alpine.js for interactivity -->
+    <!-- <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script> -->
+
+</head>
+
+<body class="bg-gray-50 text-gray-800 font-poppins">
+    <!-- Header -->
+    <header class="bg-white  sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+            <a href="#"
+                class="flex items-center space-x-2  group relative outline-none   px-2 py-1 rounded-lg transition duration-200    ">
+                <img src="assets/logo.png" alt="Sabiha Logo"
+                    class="h-10 w-10 border-2 border-pink-100 rounded-full shadow transform group-hover:scale-110 transition duration-200">
+                <span
+                    class="text-xl font-semibold text-gray-900 group-hover:text-pink-600 transition duration-200 logo-text">Sabiha</span>
+
+            </a>
+            <nav class="hidden md:flex">
+                <ul class="flex space-x-8 items-center">
+                    <li>
+                        <a href="home.html"
+                            class="text-gray-700 hover:text-pink-600 font-medium transition-colors duration-200">Home</a>
+                    </li>
+                    <li>
+                        <a href="about.html"
+                            class="text-gray-700 hover:text-pink-600 font-medium transition-colors duration-200">About</a>
+                    </li>
+                    <li>
+                        <a href="products.html"
+                            class="text-gray-700 hover:text-pink-600 font-medium transition-colors duration-200">Products</a>
+                    </li>
+                    <li>
+                        <a href="contact.html"
+                            class="text-gray-700 hover:text-pink-600 font-medium transition-colors duration-200">Contact</a>
+                    </li>
+                    <li>
+                        <a href="cart.html"
+                            class="text-gray-700 hover:text-pink-600 transition-colors duration-200 flex items-center">
+                            <i class="fas fa-shopping-cart mr-1"></i> Cart
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <button
+                    class="hidden md:inline-block px-4 py-2 rounded-lg bg-pink-500 text-white font-semibold hover:bg-pink-600 transition duration-200">Log
+                    In</button>
+                <button
+                    class="hidden md:inline-block px-4 py-2 rounded-lg border border-pink-500 text-pink-500 font-semibold hover:bg-pink-50 transition duration-200">Sign
+                    Up</button>
+                <!-- Mobile menu button -->
+                <button id="menu-btn" class="md:hidden text-gray-700 hover:text-pink-600 focus:outline-none">
+                    <i class="fas fa-bars fa-lg"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden bg-white shadow-lg absolute w-full left-0 top-full hidden">
+            <ul class="flex flex-col space-y-2 px-6 py-4">
+                <li>
+                    <a href="index.html"
+                        class="text-gray-700 hover:text-pink-600 font-medium transition-colors duration-200">Home</a>
+                </li>
+                <li>
+                    <a href="about.html"
+                        class="text-gray-700 hover:text-pink-600 font-medium transition-colors duration-200">About</a>
+                </li>
+                <li>
+                    <a href="products.html"
+                        class="text-gray-700 hover:text-pink-600 font-medium transition-colors duration-200">Products</a>
+                </li>
+                <li>
+                    <a href="contact.html"
+                        class="text-gray-700 hover:text-pink-600 font-medium transition-colors duration-200">Contact</a>
+                </li>
+                <li>
+                    <a href="cart.html"
+                        class="text-gray-700 hover:text-pink-600 transition-colors duration-200 flex items-center">
+                        <i class="fas fa-shopping-cart mr-1"></i> Cart
+                    </a>
+                </li>
+                <li>
+                    <button
+                        class="w-full px-4 py-2 rounded-lg bg-pink-500 text-white font-semibold hover:bg-pink-600 transition duration-200 mt-2">Log
+                        In</button>
+                </li>
+                <li>
+                    <button
+                        class="w-full px-4 py-2 rounded-lg border border-pink-500 text-pink-500 font-semibold hover:bg-pink-50 transition duration-200">Sign
+                        Up</button>
+                </li>
+            </ul>
+        </div>
+
+    </header>
+
+
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-br from-pink-50 via-white to-pink-100 py-10 md:py-20">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <!-- Hero Content -->
+            <div class="w-full md:w-1/2 mb-8 md:mb-0">
+                <h1 class="text-3xl md:text-5xl font-serif font-bold text-pink-700 mb-4 leading-tight"
+                    style="font-family: 'DM Serif Text', serif;">
+                    Embrace Elegance with Timeless Bengali Apparel
+                </h1>
+                <h2 class="text-lg md:text-2xl text-gray-700 mb-6 font-poppins">
+                    Handcrafted Sarees, Three-Pieces &amp; Two-Pieces, Made for Every Woman's Journey.
+                </h2>
+                <div class="flex flex-col sm:flex-row gap-4 mb-6">
+                    <a href="#shop"
+                        class="px-6 py-3 rounded-lg bg-pink-500 text-white font-semibold shadow hover:bg-pink-600 transition duration-200 text-center">
+                        Shop Now
+                    </a>
+                    <a href="#collection"
+                        class="px-6 py-3 rounded-lg border border-pink-500 text-pink-500 font-semibold hover:bg-pink-50 transition duration-200 text-center">
+                        Explore Our Collection
+                    </a>
+                </div>
+                <p class="text-gray-600 text-base md:text-lg max-w-md">
+                    Discover the beauty of authentic Bengali craftsmanship in every piece. From classic sarees to modern
+                    styles, our collection is designed to make you feel confident and beautiful.
+                </p>
+            </div>
+            <!-- Hero Visuals -->
+            <div class="w-full md:w-1/2 flex flex-col items-center">
+                <!-- Carousel/Slider -->
+                <div class="relative w-full max-w-md">
+                    <div class="overflow-hidden rounded-xl shadow-lg bg-white">
+                        <div class="carousel flex transition-transform duration-500" id="hero-carousel">
+                            <img src="assets/hero/1.jpg" alt="Elegant Saree"
+                                class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300" />
+                            <img src="assets/hero/2.jpg" alt="Three-Piece"
+                                class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300 hidden" />
+                            <img src="assets/hero/5.jpg" alt="Two-Piece"
+                                class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300 hidden" />
+                        </div>
+                        <!-- Carousel Controls -->
+                        <button
+                            class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-70 rounded-full p-2 shadow hover:bg-pink-100 transition"
+                            id="prev-slide">
+                            <i class="fas fa-chevron-left text-pink-500"></i>
+                        </button>
+                        <button
+                            class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-70 rounded-full p-2 shadow hover:bg-pink-100 transition"
+                            id="next-slide">
+                            <i class="fas fa-chevron-right text-pink-500"></i>
+                        </button>
+                    </div>
+                </div>
+                <!-- Featured Section -->
+                <div class="mt-6 w-full max-w-md">
+                    <h3 class="text-pink-700 font-semibold mb-2 text-lg font-serif"
+                        style="font-family: 'DM Serif Text', serif;">
+                        Featured
+                    </h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div
+                            class="group relative bg-white rounded-lg shadow hover:shadow-lg transition overflow-hidden">
+                            <img src="assets/hero/3.jpg" alt="New Arrival Saree"
+                                class="w-full h-32 object-cover group-hover:scale-105 transition-transform duration-300" />
+                            <span
+                                class="absolute bottom-2 left-2 bg-pink-500 text-white text-xs px-2 py-1 rounded font-semibold">New
+                                Arrival</span>
+                        </div>
+                        <div
+                            class="group relative bg-white rounded-lg shadow hover:shadow-lg transition overflow-hidden">
+                            <img src="assets/hero/PXL_20250614_081358500~2.jpg" alt="Best Seller Three-Piece"
+                                class="w-full h-32 object-cover group-hover:scale-105 transition-transform duration-300" />
+                            <span
+                                class="absolute bottom-2 left-2 bg-pink-500 text-white text-xs px-2 py-1 rounded font-semibold">Best
+                                Seller</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- /Discouints -->
+    <section class="py-10 bg-gradient-to-r from-pink-500 via-pink-400 to-pink-600 text-white relative">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
+            <!-- Banner Text -->
+            <div class="mb-6 md:mb-0">
+                <h2 class="text-2xl md:text-4xl font-bold mb-2 flex items-center gap-2">
+                    <i class="fas fa-bolt text-yellow-300"></i>
+                    Seasonal Sale – Up to <span class="underline decoration-yellow-300 decoration-4">30% Off!</span>
+                </h2>
+                <p class="text-lg md:text-xl font-medium">
+                    Don’t miss out! Shop now and save on our best-selling collections.
+                </p>
+                <span class="block mt-2 text-sm font-semibold bg-white bg-opacity-20 px-3 py-1 rounded">
+                    Exclusive Online Discounts
+                </span>
+            </div>
+            <!-- Countdown Timer -->
+            <div class="flex flex-col items-center md:items-end">
+                <span class="text-base font-semibold mb-1">Ends In:</span>
+                <div id="sale-timer"
+                    class="flex gap-2 text-2xl md:text-3xl font-mono font-bold bg-white bg-opacity-20 px-4 py-2 rounded-lg shadow">
+                    <span id="days">00</span>d :
+                    <span id="hours">00</span>h :
+                    <span id="minutes">00</span>m :
+                    <span id="seconds">00</span>s
+                </div>
+            </div>
+        </div>
+        <!-- Highlighted Discounts -->
+        <div class="container mx-auto px-4 mt-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <a href="#shop"
+                    class="relative group bg-white bg-opacity-90 rounded-2xl p-6 flex flex-col items-center shadow-lg hover:shadow-2xl transition cursor-pointer border-2 border-pink-200 hover:border-pink-500 overflow-hidden">
+                    <!-- Decorative Ribbon -->
+                    <span
+                        class="absolute top-4 left-0 bg-pink-500 text-white text-xs px-4 py-1 rounded-r-full font-bold shadow group-hover:bg-pink-600 transition">Best
+                        Value</span>
+                    <img src="assets/new/1.jpg" alt="Cotton Saree"
+                        class="w-28 h-28 object-cover rounded-xl mb-4 border-4 border-pink-100 group-hover:scale-110 transition-transform duration-300 shadow">
+                    <span class="text-pink-700 font-bold text-xl mb-1 font-serif"
+                        style="font-family: 'DM Serif Text', serif;">Cotton Saree</span>
+                    <span class="text-pink-600 font-semibold mb-2 text-lg">Now ৳1,295 <span
+                            class="line-through text-gray-400 text-sm ml-2">৳1,850</span></span>
+                    <span class="bg-pink-100 text-pink-700 px-3 py-1 rounded-full text-xs font-semibold shadow mb-2">30%
+                        Off</span>
+                    <span class="text-gray-500 text-xs text-center">Soft, breathable, handwoven for comfort.</span>
+                    <!-- Hover effect -->
+                    <span class="absolute inset-0 bg-pink-50 opacity-0 group-hover:opacity-10 transition"></span>
+                </a>
+                <!-- Card 2 -->
+                <a href="#shop"
+                    class="relative group bg-white bg-opacity-90 rounded-2xl p-6 flex flex-col items-center shadow-lg hover:shadow-2xl transition cursor-pointer border-2 border-pink-200 hover:border-pink-500 overflow-hidden">
+                    <span
+                        class="absolute top-4 left-0 bg-yellow-400 text-pink-700 text-xs px-4 py-1 rounded-r-full font-bold shadow group-hover:bg-yellow-500 transition">Hot
+                        Deal</span>
+                    <img src="assets/new/2.jpg" alt="Embroidered Three-Piece"
+                        class="w-28 h-28 object-cover rounded-xl mb-4 border-4 border-pink-100 group-hover:scale-110 transition-transform duration-300 shadow">
+                    <span class="text-pink-700 font-bold text-xl mb-1 font-serif"
+                        style="font-family: 'DM Serif Text', serif;">Embroidered Three-Piece</span>
+                    <span class="text-pink-600 font-semibold mb-2 text-lg">Now ৳1,920 <span
+                            class="line-through text-gray-400 text-sm ml-2">৳2,400</span></span>
+                    <span class="bg-pink-100 text-pink-700 px-3 py-1 rounded-full text-xs font-semibold shadow mb-2">20%
+                        Off</span>
+                    <span class="text-gray-500 text-xs text-center">Festive embroidery, premium comfort.</span>
+                    <span class="absolute inset-0 bg-pink-50 opacity-0 group-hover:opacity-10 transition"></span>
+                </a>
+                <!-- Card 3 -->
+                <a href="#shop"
+                    class="relative group bg-white bg-opacity-90 rounded-2xl p-6 flex flex-col items-center shadow-lg hover:shadow-2xl transition cursor-pointer border-2 border-pink-200 hover:border-pink-500 overflow-hidden">
+                    <span
+                        class="absolute top-4 left-0 bg-green-400 text-pink-700 text-xs px-4 py-1 rounded-r-full font-bold shadow group-hover:bg-green-500 transition">Limited
+                        Time</span>
+                    <img src="assets/new/3.jpg" alt="Linen Two-Piece"
+                        class="w-28 h-28 object-cover rounded-xl mb-4 border-4 border-pink-100 group-hover:scale-110 transition-transform duration-300 shadow">
+                    <span class="text-pink-700 font-bold text-xl mb-1 font-serif"
+                        style="font-family: 'DM Serif Text', serif;">Linen Two-Piece</span>
+                    <span class="text-pink-600 font-semibold mb-2 text-lg">Now ৳1,485 <span
+                            class="line-through text-gray-400 text-sm ml-2">৳1,650</span></span>
+                    <span class="bg-pink-100 text-pink-700 px-3 py-1 rounded-full text-xs font-semibold shadow mb-2">10%
+                        Off</span>
+                    <span class="text-gray-500 text-xs text-center">Lightweight linen, effortless style.</span>
+                    <span class="absolute inset-0 bg-pink-50 opacity-0 group-hover:opacity-10 transition"></span>
+                </a>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Featured -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-serif font-bold text-center text-pink-700 mb-10"
+                style="font-family: 'DM Serif Text', serif;">
+                Discover Our Top Categories
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Sarees -->
+                <div
+                    class="bg-pink-50 rounded-xl shadow-lg overflow-hidden flex flex-col items-center p-6 group hover:shadow-2xl transition">
+                    <img src="assets/features/6.jpg" alt="Sarees"
+                        class="w-full h-48 object-cover rounded-lg mb-4 group-hover:scale-105 transition-transform duration-300">
+                    <h3 class="text-xl font-semibold text-pink-700 mb-2 font-serif"
+                        style="font-family: 'DM Serif Text', serif;">Sarees</h3>
+                    <p class="text-gray-600 mb-4 text-center">
+                        Timeless Bengali sarees, handwoven with intricate patterns and vibrant colors for every
+                        occasion.
+                    </p>
+                    <a href="#sarees"
+                        class="px-5 py-2 rounded-lg bg-pink-500 text-white font-semibold shadow hover:bg-pink-600 transition duration-200">
+                        Shop Sarees
+                    </a>
+                </div>
+                <!-- Three-Pieces -->
+                <div
+                    class="bg-pink-50 rounded-xl shadow-lg overflow-hidden flex flex-col items-center p-6 group hover:shadow-2xl transition">
+                    <img src="assets/features/666.jpg" alt="Three-Pieces"
+                        class="w-full h-48 object-cover rounded-lg mb-4 group-hover:scale-105 transition-transform duration-300">
+                    <h3 class="text-xl font-semibold text-pink-700 mb-2 font-serif"
+                        style="font-family: 'DM Serif Text', serif;">Three-Pieces</h3>
+                    <p class="text-gray-600 mb-4 text-center">
+                        Elegant three-piece sets blending tradition and modern style, perfect for festive and daily
+                        wear.
+                    </p>
+                    <a href="#threepieces"
+                        class="px-5 py-2 rounded-lg bg-pink-500 text-white font-semibold shadow hover:bg-pink-600 transition duration-200">
+                        Explore Three-Pieces
+                    </a>
+                </div>
+                <!-- Two-Pieces -->
+                <div
+                    class="bg-pink-50 rounded-xl shadow-lg overflow-hidden flex flex-col items-center p-6 group hover:shadow-2xl transition">
+                    <img src="assets/features/6666.jpg" alt="Two-Pieces"
+                        class="w-full h-48 object-cover rounded-lg mb-4 group-hover:scale-105 transition-transform duration-300">
+                    <h3 class="text-xl font-semibold text-pink-700 mb-2 font-serif"
+                        style="font-family: 'DM Serif Text', serif;">Two-Pieces</h3>
+                    <p class="text-gray-600 mb-4 text-center">
+                        Stylish two-piece outfits crafted for comfort and grace, ideal for everyday elegance.
+                    </p>
+                    <a href="#twopieces"
+                        class="px-5 py-2 rounded-lg bg-pink-500 text-white font-semibold shadow hover:bg-pink-600 transition duration-200">
+                        Browse Two-Pieces
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us -->
+    <section id="about" class="py-16 bg-pink-50">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <!-- Brand Story -->
+            <div class="w-full md:w-2/3 mb-8 md:mb-0">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-pink-700 mb-4"
+                    style="font-family: 'DM Serif Text', serif;">
+                    Our Story
+                </h2>
+                <p class="text-gray-700 text-lg mb-6 font-poppins">
+                    At Sabiha, we honor the rich tradition of Bengali craftsmanship while adding a modern flair to every
+                    design. Our clothing is made with love, from carefully selected fabrics to hand-stitched details.
+                    Each piece reflects our passion for empowering women with elegance, comfort, and culture.
+                </p>
+                <p class="text-gray-600 text-base mb-6">
+                    We believe fashion should celebrate individuality and heritage. Our team works closely with local
+                    artisans, blending timeless techniques with contemporary styles to create collections that are both
+                    authentic and inspiring. Whether it's a classic saree or a chic two-piece, every item is crafted to
+                    make you feel confident and beautiful.
+                </p>
+                <p class="text-gray-600 text-base">
+                    Join us on this journey—where tradition meets today, and every woman shines with grace.
+                </p>
+            </div>
+            <!-- Team Photo -->
+            <div class="w-full md:w-1/3 flex justify-center  0">
+                <div class="rounded-xl overflow-hidden shadow-lg w-full">
+                    <img src="assets/about/1.jpg" alt="Sabiha Team at Workspace" class="w-full h-64 object-cover" />
+                    <div class="p-4 text-center">
+                        <span class="text-pink-700 font-semibold">Meet Our Founder</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Beast Seller -->
+
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-serif font-bold text-center text-pink-700 mb-10"
+                style="font-family: 'DM Serif Text', serif;">
+                Shop Our Latest Arrivals
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Product 1 -->
+                <div
+                    class="relative bg-gradient-to-br from-pink-100 via-white to-pink-50 rounded-2xl shadow-xl overflow-hidden flex flex-col items-center p-0 group hover:scale-105 transition-transform duration-300 border border-pink-200">
+                    <div class="w-full h-56 overflow-hidden">
+                        <img src="assets/new/1.jpg" alt="Cotton Saree"
+                            class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
+                    </div>
+                    <div class="w-full px-6 py-4 flex flex-col items-center">
+                        <h3 class="text-xl font-bold text-pink-700 mb-1 font-serif"
+                            style="font-family: 'DM Serif Text', serif;">Cotton Saree</h3>
+                        <p class="text-gray-600 mb-2 text-center text-sm italic">
+                            Soft, breathable cotton perfect for any occasion. Handwoven with delicate patterns.
+                        </p>
+                        <span class="bg-pink-100 text-pink-700 font-bold text-lg px-3 py-1 rounded-full mb-3 shadow">
+                            ৳1,850
+                        </span>
+                        <button
+                            class="w-full px-5 py-2 rounded-lg bg-pink-500 text-white font-semibold shadow hover:bg-pink-600 transition duration-200 flex items-center justify-center gap-2">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                    <span
+                        class="absolute top-4 right-4 bg-pink-500 text-white text-xs px-3 py-1 rounded-full font-semibold shadow">Bestseller</span>
+                </div>
+                <!-- Product 2 -->
+                <div
+                    class="relative bg-gradient-to-br from-pink-50 via-white to-pink-100 rounded-2xl shadow-xl overflow-hidden flex flex-col items-center p-0 group hover:scale-105 transition-transform duration-300 border border-pink-200">
+                    <div class="w-full h-56 overflow-hidden">
+                        <img src="assets/new/2.jpg" alt="Embroidered Three-Piece"
+                            class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
+                    </div>
+                    <div class="w-full px-6 py-4 flex flex-col items-center">
+                        <h3 class="text-xl font-bold text-pink-700 mb-1 font-serif"
+                            style="font-family: 'DM Serif Text', serif;">Embroidered Three-Piece</h3>
+                        <p class="text-gray-600 mb-2 text-center text-sm italic">
+                            Elegant embroidery and premium fabric for festive flair and everyday comfort.
+                        </p>
+                        <span class="bg-pink-100 text-pink-700 font-bold text-lg px-3 py-1 rounded-full mb-3 shadow">
+                            ৳2,400
+                        </span>
+                        <button
+                            class="w-full px-5 py-2 rounded-lg bg-pink-500 text-white font-semibold shadow hover:bg-pink-600 transition duration-200 flex items-center justify-center gap-2">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                    <span
+                        class="absolute top-4 right-4 bg-pink-500 text-white text-xs px-3 py-1 rounded-full font-semibold shadow">New
+                        Arrival</span>
+                </div>
+                <!-- Product 3 -->
+                <div
+                    class="relative bg-gradient-to-br from-pink-100 via-white to-pink-50 rounded-2xl shadow-xl overflow-hidden flex flex-col items-center p-0 group hover:scale-105 transition-transform duration-300 border border-pink-200">
+                    <div class="w-full h-56 overflow-hidden">
+                        <img src="assets/new/3.jpg" alt="Linen Two-Piece"
+                            class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
+                    </div>
+                    <div class="w-full px-6 py-4 flex flex-col items-center">
+                        <h3 class="text-xl font-bold text-pink-700 mb-1 font-serif"
+                            style="font-family: 'DM Serif Text', serif;">Linen Two-Piece</h3>
+                        <p class="text-gray-600 mb-2 text-center text-sm italic">
+                            Lightweight linen set for effortless style. Ideal for warm days and relaxed outings.
+                        </p>
+                        <span class="bg-pink-100 text-pink-700 font-bold text-lg px-3 py-1 rounded-full mb-3 shadow">
+                            ৳1,650
+                        </span>
+                        <button
+                            class="w-full px-5 py-2 rounded-lg bg-pink-500 text-white font-semibold shadow hover:bg-pink-600 transition duration-200 flex items-center justify-center gap-2">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                    <span
+                        class="absolute top-4 right-4 bg-pink-500 text-white text-xs px-3 py-1 rounded-full font-semibold shadow">Featured</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-16 bg-pink-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-serif font-bold text-center text-pink-700 mb-10"
+                style="font-family: 'DM Serif Text', serif;">
+                What Our Customers Say
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
+                    <img src="assets/testimonials/1.jpeg" alt="Customer wearing saree"
+                        class="w-24 h-24 rounded-full object-cover mb-4 border-4 border-pink-100 shadow">
+                    <p class="text-gray-700 text-center italic mb-3">
+                        "I absolutely love the saree I purchased! The fabric is so soft and the design is stunning!"
+                    </p>
+                    <span class="text-pink-700 font-semibold">– Ayesha R.</span>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
+                    <img src="assets/testimonials/2.jpeg" alt="Customer in three-piece"
+                        class="w-24 h-24 rounded-full object-cover mb-4 border-4 border-pink-100 shadow">
+                    <p class="text-gray-700 text-center italic mb-3">
+                        "My favorite go-to outfit for any occasion! The three-piece set is both elegant and
+                        comfortable."
+                    </p>
+                    <span class="text-pink-700 font-semibold">– Nusrat H.</span>
+                </div>
+                <!-- Testimonial 3 -->
+                <div class="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
+                    <img src="assets/testimonials/3.jpeg" alt="Customer in two-piece"
+                        class="w-24 h-24 rounded-full object-cover mb-4 border-4 border-pink-100 shadow">
+                    <p class="text-gray-700 text-center italic mb-3">
+                        "The linen two-piece is perfect for summer! I get compliments every time I wear it."
+                    </p>
+                    <span class="text-pink-700 font-semibold">– Shama S.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Latter  -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4 max-w-xl text-center">
+            <h2 class="text-3xl md:text-4xl font-serif font-bold text-pink-700 mb-4"
+                style="font-family: 'DM Serif Text', serif;">
+                Stay Updated on New Arrivals, Sales &amp; Special Offers!
+            </h2>
+            <p class="text-gray-700 mb-6 text-lg">
+                Subscribe now and get <span class="text-pink-500 font-bold">10% off</span> your first order!
+            </p>
+            <form class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <input type="email" placeholder="Enter your email address" required
+                    class="w-full sm:w-auto px-4 py-2 rounded-lg border border-pink-300 focus:outline-none focus:ring-2 focus:ring-pink-400 transition" />
+                <button type="submit"
+                    class="px-6 py-2 rounded-lg bg-pink-500 text-white font-semibold shadow hover:bg-pink-600 transition duration-200">
+                    Subscribe
+                </button>
+            </form>
+            <span class="block mt-4 text-sm text-gray-500">We respect your privacy. Unsubscribe anytime.</span>
+        </div>
+    </section>
+
+    <!-- Social Media -->
+    <section>
+
+    </section>
+
+
+    <!-- Footer  -->
+
+    <footer class="bg-pink-700 text-white pt-10 pb-6">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+
+            <div>
+                <img src="assets/logo.png" alt="footer Logo" class="w-32 mb-4">
+                <h3 class="text-2xl font-serif font-bold mb-4" style="font-family: 'DM Serif Text', serif;">
+                    Sabiha
+                </h3>
+                <p class="text-pink-100 max-w-xs">
+                    Embrace Elegance with Timeless Bengali Apparel. Handcrafted Sarees, Three-Pieces &amp; Two-Pieces,
+                    Made for
+                </p>
+            </div>
+            <!-- Essential Links -->
+            <div>
+                <h4 class="font-semibold text-lg mb-3">Quick Links</h4>
+                <ul class="space-y-2">
+                    <li>
+                        <a href="#contact"
+                            class="hover:underline transition-colors duration-200 hover:text-pink-300 focus:text-pink-300 focus:outline-none">Contact
+                            Us</a>
+                    </li>
+                    <li>
+                        <a href="#shipping"
+                            class="hover:underline transition-colors duration-200 hover:text-pink-300 focus:text-pink-300 focus:outline-none">Shipping
+                            &amp; Returns</a>
+                    </li>
+                    <li>
+                        <a href="#privacy"
+                            class="hover:underline transition-colors duration-200 hover:text-pink-300 focus:text-pink-300 focus:outline-none">Privacy
+                            Policy</a>
+                    </li>
+                    <li>
+                        <a href="#faqs"
+                            class="hover:underline transition-colors duration-200 hover:text-pink-300 focus:text-pink-300 focus:outline-none">FAQs</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- Follow Us -->
+            <div>
+                <h4 class="font-semibold text-lg mb-3">Follow Us</h4>
+                <div class="flex space-x-4">
+                    <a href="#" aria-label="Facebook"
+                        class="hover:text-pink-300 focus:text-pink-300 transition-colors duration-200 focus:outline-none">
+                        <i class="fab fa-facebook fa-lg"></i>
+                    </a>
+                    <a href="#" aria-label="Instagram"
+                        class="hover:text-pink-300 focus:text-pink-300 transition-colors duration-200 focus:outline-none">
+                        <i class="fab fa-instagram fa-lg"></i>
+                    </a>
+                    <a href="#" aria-label="Twitter"
+                        class="hover:text-pink-300 focus:text-pink-300 transition-colors duration-200 focus:outline-none">
+                        <i class="fab fa-twitter fa-lg"></i>
+                    </a>
+                    <a href="#" aria-label="Pinterest"
+                        class="hover:text-pink-300 focus:text-pink-300 transition-colors duration-200 focus:outline-none">
+                        <i class="fab fa-pinterest fa-lg"></i>
+                    </a>
+                </div>
+                <form class="mt-4 flex flex-col sm:flex-row items-center gap-2" id="footer-newsletter-form">
+                    <input type="email" placeholder="Your email" required
+                        class="px-3 py-2 rounded-lg border border-pink-300 text-gray-800 focus:outline-none focus:ring-2 focus:ring-pink-400 transition w-full sm:w-auto" />
+                    <button type="submit"
+                        class="px-4 py-2 rounded-lg bg-pink-500 text-white font-semibold hover:bg-pink-600 transition duration-200">
+                        Subscribe
+                    </button>
+                </form>
+                <span id="footer-newsletter-msg" class="block mt-2 text-xs text-pink-100"></span>
+            </div>
+            <!-- Payment Security -->
+
+        </div>
+        <div class="container mx-auto px-4 mt-8 border-t border-pink-600 pt-4 text-center text-sm text-pink-100">
+            &copy; 2024 Sabiha. All rights reserved.
+        </div>
+
+    </footer>
+
+
+
+    <!-- JS -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>
