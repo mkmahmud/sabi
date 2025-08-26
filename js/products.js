@@ -49,3 +49,46 @@ document.getElementById('copy-link-btn').onclick = function () {
 document.getElementById('copy-link-btn-mobile').onclick = function () {
     navigator.clipboard.writeText(window.location.href);
 };
+
+
+
+async function handleSubmit(event) {
+    event.preventDefault(); // prevent form from submitting/reloading
+
+    // Get values from inputs
+    const name = document.getElementById("order-name").value;
+    const phone = document.getElementById("order-phone").value;
+    const area = document.getElementById("order-area").value;
+    const address = document.getElementById("order-address").value;
+    const email = document.getElementById("order-email").value;
+    const quantity = document.getElementById("quantity") ? document.getElementById("quantity").value : 1;
+
+    // Combine into an object
+    const formData = { name, phone, area, address, email, quantity };
+    console.log(formData); // for debugging
+
+    try {
+        const response = await fetch("https://back-jfpl.onrender.com/api/order", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(formData)
+        });
+
+        if (!response.ok) {
+            throw new Error(`Server error: ${response.status}`);
+        }
+
+        await response.json();
+        // Show confirmation message
+        document.getElementById("show-msg").style.display = "block";
+
+        // Optional: reset form
+        document.getElementById("order-form").reset();
+
+    } catch (error) {
+        console.error("Error submitting form:", error);
+        alert("There was an error submitting your order. Please try again.");
+    }
+}

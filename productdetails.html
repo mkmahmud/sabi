@@ -21,6 +21,7 @@
     <!-- Alpine.js for interactivity -->
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
+
 </head>
 
 <body class="bg-gray-50 text-gray-800 font-poppins">
@@ -118,38 +119,44 @@
     <!-- Main -->
     <!-- top carousal -->
     <div class="container mx-auto px-4 py-6 grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div class="max-w-2xl mx-auto mt-8" x-data="{
-        images: [
-            'assets/hero/1.jpg',
-            'assets/hero/2.jpg',
-            'assets/hero/3.jpg', 
-        ],
-        active: 0,
-        setActive(i) { this.active = i },
-        next() { this.active = (this.active + 1) % this.images.length },
-        prev() { this.active = (this.active - 1 + this.images.length) % this.images.length }
-    }">
+        <div class="w-full mx-auto mt-4" x-data="{
+            images: [
+                'assets/saree/1.jpg',
+                'assets/saree/2.jpg',
+                'assets/saree/3.jpg',
+                'assets/saree/4.jpg', 
+                'assets/saree/6.jpg',
+                'assets/saree/7.jpg',
+                'assets/saree/8.jpg'
+            ],
+            active: 0,
+            setActive(i) { this.active = i },
+            next() { this.active = (this.active + 1) % this.images.length },
+            prev() { this.active = (this.active - 1 + this.images.length) % this.images.length }
+        }">
             <!-- Main Image -->
-            <div class="relative">
+            <div class="relative flex justify-center items-center">
                 <img :src="images[active]" alt="Product Image"
-                    class="w-full h-96 object-cover rounded-lg shadow-lg transition-all duration-300"
-                    x-touch:swipe.left="next()" x-touch:swipe.right="prev()">
-                <!-- Left Arrow -->
-                <button @click="prev"
-                    class="absolute left-2 top-1/2 -translate-y-1/2 bg-white bg-opacity-70 rounded-full p-2 shadow hover:bg-opacity-100 transition hidden md:block">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <!-- Right Arrow -->
-                <button @click="next"
-                    class="absolute right-2 top-1/2 -translate-y-1/2 bg-white bg-opacity-70 rounded-full p-2 shadow hover:bg-opacity-100 transition hidden md:block">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
+                    class="rounded-lg shadow-lg transition-all duration-300 w-full max-w-xs sm:max-w-sm md:max-w-md"
+                    style="height:auto;display:block;" x-touch:swipe.left="next()" x-touch:swipe.right="prev()">
+                <!-- Mobile Arrows -->
+                <div class="flex justify-between absolute bottom-2 left-0 right-0 px-4">
+                    <button @click="prev"
+                        class="bg-white bg-opacity-80 rounded-full p-2 shadow hover:bg-opacity-100 transition">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button @click="next"
+                        class="bg-white bg-opacity-80 rounded-full p-2 shadow hover:bg-opacity-100 transition">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
             </div>
             <!-- Thumbnails -->
-            <div class="flex justify-center gap-3 mt-4">
+            <div class="flex justify-center gap-2 mt-3 overflow-x-auto">
                 <template x-for="(img, i) in images" :key="i">
-                    <img :src="img" @click="setActive(i)" :class="{'ring-2 ring-indigo-500': active === i}"
-                        class="w-20 h-20 object-cover rounded cursor-pointer border border-gray-200 hover:ring-2 hover:ring-indigo-300 transition">
+                    <img :src="img" @click="setActive(i)" :class="{'ring-2 ring-pink-500': active === i}"
+                        class="object-cover rounded cursor-pointer border border-gray-200 hover:ring-2 hover:ring-pink-300 transition w-14 h-14 flex-shrink-0"
+                        style="height:auto;">
                 </template>
             </div>
         </div>
@@ -158,95 +165,68 @@
             <div class="max-w-2xl mx-auto mt-6 text-left">
                 <h1 class="text-2xl md:text-3xl font-bold text-gray-900 mb-2 font-serif"
                     style="font-family: 'DM Serif Text', serif;">
-                    Bengali Handwoven Saree – Traditional Red
+                    হাপ সিল্ক সাদা লাল শাড়ী ব্লাউজ সহ | Half Silk Saree White & Red with Blouse Piece
                 </h1>
                 <div class="flex justify-start items-center gap-3 mb-2">
                     <span class="text-lg md:text-xl font-semibold text-gray-400 line-through">
-                        ৳3200
+                        ৳950
                     </span>
                     <span class="text-xl md:text-2xl font-bold text-pink-600 drop-shadow">
-                        ৳2490
+                        ৳850
                     </span>
                 </div>
                 <span
                     class="inline-block bg-green-100 text-green-700 font-medium text-sm px-3 py-0.5 rounded-full shadow mb-1 animate-pulse">
-                    Save 22% – Limited Time Offer!
+                    Save 12% – Limited Time Offer!
                 </span>
             </div>
 
             <div class="max-w-2xl mx-auto mt-6 bg-white rounded-lg shadow p-6">
-                <!-- Size Selection -->
-                <div class="mb-6" x-data="{ sizes: ['S', 'M', 'L', 'XL'], selectedSize: 'M' }">
-                    <label class="block text-base font-semibold mb-2 text-gray-800" for="size-select">Size:</label>
-                    <div class="flex flex-wrap gap-3 justify-start">
-                        <template x-for="size in sizes" :key="size">
-                            <button type="button" @click="selectedSize = size"
-                                :class="{'bg-pink-500 text-white shadow scale-105': selectedSize === size, 'bg-white text-gray-700': selectedSize !== size}"
-                                class="px-4 py-1 rounded-lg border border-pink-300 font-medium text-sm transition-all duration-200 focus:outline-none hover:bg-pink-100 hover:scale-105"
-                                x-text="size">
-                            </button>
-                        </template>
-                    </div>
-                </div>
+
+
                 <!-- Color Selection -->
-                <div class="mb-6" x-data="{
-                    colors: [
-                        { name: 'Red', value: '#C81D25', img: 'assets/hero/1.jpg' },
-                        { name: 'Green', value: '#228B22', img: 'assets/hero/2.jpg' },
-                        { name: 'Blue', value: '#1E90FF', img: 'assets/hero/3.jpg' }
-                    ],
-                    selectedColor: 0,
-                    updateImage(i) {
-                        this.selectedColor = i;
-                        $root.images[0] = this.colors[i].img;
-                        $root.active = 0;
-                    }
-                }">
-                    <label class="block text-base font-semibold mb-2 text-gray-800">Color:</label>
-                    <div class="flex gap-4 justify-start">
-                        <template x-for="(color, i) in colors" :key="color.name">
-                            <button type="button" @click="updateImage(i)"
-                                :class="{'ring-2 ring-pink-500 scale-105 shadow': selectedColor === i}"
-                                class="w-9 h-9 rounded-full border border-gray-300 flex items-center justify-center transition-all duration-200 focus:outline-none hover:scale-105"
-                                :aria-label="color.name" :title="color.name">
-                                <span :style="`background:${color.value}`"
-                                    class="block w-6 h-6 rounded-full border border-white shadow"></span>
-                            </button>
-                        </template>
-                    </div>
-                    <div class="mt-2 text-left text-sm text-gray-700 font-semibold" x-text="colors[selectedColor].name">
+                <div class="mb-6 flex items-center">
+                    <p class="block text-base font-semibold mb-2 text-gray-800 mr-4">Color:</p>
+                    <div class="flex items-center text-left text-sm text-gray-700 font-semibold">
+                        <p class="mr-2">Red</p>
+                        <p class="mr-2">&</p>
+                        <p class="mr-2">White</p>
                     </div>
                 </div>
-                <!-- Quantity Selector -->
-                <div class="flex items-center justify-start gap-4 mb-6" x-data="{ qty: 1 }">
-                    <label for="quantity" class="font-semibold text-base text-gray-800">Quantity:</label>
-                    <button type="button" @click="qty = Math.max(1, qty - 1)"
-                        class="px-3 py-1 rounded-lg bg-pink-100 text-pink-600 font-bold text-lg hover:bg-pink-200 transition focus:outline-none shadow"
-                        aria-label="Decrease quantity">
-                        -
-                    </button>
-                    <input id="quantity" type="number" min="1" x-model="qty"
-                        class="w-12 text-center px-2 py-1 rounded-lg border border-pink-300 focus:outline-none focus:ring-2 focus:ring-pink-400 transition font-bold text-base" />
-                    <button type="button" @click="qty = qty + 1"
-                        class="px-3 py-1 rounded-lg bg-pink-100 text-pink-600 font-bold text-lg hover:bg-pink-200 transition focus:outline-none shadow"
-                        aria-label="Increase quantity">
-                        +
-                    </button>
+
+
+                <!-- key features -->
+                <div class="my-6">
+                    <label class="block text-base font-semibold mb-2 text-gray-800">Key Features:</label>
+                    <ul class="list-disc pl-6 space-y-2 text-gray-700 text-base">
+                        <li>🧵 Fabric: Premium Half Silk – হালকা, আরামদায়ক এবং দীর্ঘ সময় পরার জন্য উপযুক্ত</li>
+                        <li>👗 Blouse Piece Included – সম্পূর্ণ আউটফিট</li>
+                        <li>🎨 Classic White Saree with Red Border & Design – ঐতিহ্যবাহী ও মার্জিত</li>
+                        <li>💃 Comfortable & Lightweight – সারাদিন পরার জন্য পারফেক্ট</li>
+                        <li>🌸 Elegant, Traditional & Modern Fusion Look – প্রতিটি অনুষ্ঠানে মানানসই</li>
+                        <li>✨ Exclusive Design – সীমিত স্টক, অনন্য ডিজাইন</li>
+                    </ul>
                 </div>
+
+
                 <!-- Add to Cart Button -->
 
-                <button
-                    class="w-full px-6 py-3 rounded-lg bg-blue-400 text-white font-bold text-lg shadow hover:from-pink-600 hover:to-pink-700 transition duration-200 focus:outline-none mb-1 flex items-center justify-center gap-2"
-                    id="add-to-cart-btn">
-                    <i class="fab fa-facebook"></i>
-                    Messenger
-                </button>
-                <button
-                    class="w-full px-6 py-3 rounded-lg bg-green-400 text-white font-bold text-lg shadow hover:from-pink-600 hover:to-pink-700 transition duration-200 focus:outline-none mb-1 flex items-center justify-center gap-2"
-                    id="add-to-cart-btn">
-                    <i class="fab fa-whatsapp"></i>
-                    WhatsApp
-                </button>
+                <a href="http://m.me/sabiha.fashon" target="_blank" rel="noopener">
+                    <button
+                        class="w-full px-6 py-3 rounded-lg bg-blue-400 text-white font-bold text-lg shadow hover:bg-blue-500 transition duration-200 focus:outline-none mb-1 flex items-center justify-center gap-2"
+                        id="add-to-cart-btn">
+                        <i class="fab fa-facebook-messenger"></i>
+                        Messenger
+                    </button>
+                </a>
+                <a href="https://wa.me/+8801865857191" target="_blank" rel="noopener">
+                    <button
+                        class="w-full px-6 py-3 rounded-lg bg-green-400 text-white font-bold text-lg shadow hover:bg-green-500 transition duration-200 focus:outline-none mb-1 flex items-center justify-center gap-2"
+                        id="add-to-cart-btn">
+                        <i class="fab fa-whatsapp"></i>
+                        WhatsApp / 01865857191
+                    </button>
+                </a>
                 <button
                     class="w-full px-6 py-3 rounded-lg bg-gradient-to-r from-pink-500 to-pink-600 text-white font-bold text-lg shadow hover:from-pink-600 hover:to-pink-700 transition duration-200 focus:outline-none mb-1 flex items-center justify-center gap-2"
                     id="add-to-cart-btn">
@@ -255,33 +235,42 @@
                         <span class="block     mt-1">Proceed to checkout</span>
                     </a>
                 </button>
+
+                <div class="my-6">
+                    <div class="flex flex-col gap-4 text-sm text-gray-700">
+                        <div class="flex items-center gap-4">
+                            <span class="font-semibold text-gray-800">ঢাকায় ডেলিভারি খরচ:</span>
+                            <span class="text-pink-600 font-bold text-base">৳ 80.00</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <span class="font-semibold text-gray-800">ঢাকার বাইরের ডেলিভারি খরচ:</span>
+                            <span class="text-pink-600 font-bold text-base">৳ 150.00</span>
+                        </div>
+                    </div>
+                </div>
                 <div class="text-left text-xs text-gray-500 mt-2"></div>
                 <i class="fas fa-truck mr-1 text-pink-400"></i>
-                Free delivery in Bangladesh | <i class="fas fa-undo-alt mx-1 text-pink-400"></i> 7-day easy returns
+                delivery in all Bangladesh | <i class="fas fa-undo-alt mx-1 text-pink-400"></i> 7-day easy returns
+
+                <a href="tel:+8801865857191" class="block text-blue-600 font-semibold mt-3 hover:underline">
+                    <i class="fas fa-phone-alt mr-1"></i>
+                    Call us: 01865857191 (10AM–11PM)
+                </a>
             </div>
             <div class="max-w-2xl mx-auto mt-6 mb-10 px-4">
                 <div class="flex flex-wrap gap-3 items-center justify-start bg-white rounded-xl shadow p-4">
                     <span class="font-semibold text-gray-700 text-base mr-2">Share:</span>
-                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://yourdomain.com/productdetails.html"
-                        target="_blank" rel="noopener"
+                    <a href="https://www.facebook.com/sabiha.fashon" target="_blank" rel="noopener"
                         class="rounded-full bg-blue-600 hover:bg-blue-700 text-white p-2 transition shadow focus:outline-none flex items-center justify-center"
                         aria-label="Share on Facebook">
                         <i class="fab fa-facebook-f"></i>
                     </a>
-                    <a href="https://www.instagram.com/?url=https://yourdomain.com/productdetails.html" target="_blank"
-                        rel="noopener"
+                    <a href="https://www.instagram.com/sabi.ha1fashion/" target="_blank" rel="noopener"
                         class="rounded-full bg-pink-500 hover:bg-pink-600 text-white p-2 transition shadow focus:outline-none flex items-center justify-center"
                         aria-label="Share on Instagram">
                         <i class="fab fa-instagram"></i>
                     </a>
-                    <a href="https://pinterest.com/pin/create/button/?url=https://yourdomain.com/productdetails.html"
-                        target="_blank" rel="noopener"
-                        class="rounded-full bg-red-500 hover:bg-red-600 text-white p-2 transition shadow focus:outline-none flex items-center justify-center"
-                        aria-label="Share on Pinterest">
-                        <i class="fab fa-pinterest-p"></i>
-                    </a>
-                    <a href="https://wa.me/?text=https://yourdomain.com/productdetails.html" target="_blank"
-                        rel="noopener"
+                    <a href="https://wa.me/+8801865857191" target="_blank" rel="noopener"
                         class="rounded-full bg-green-500 hover:bg-green-600 text-white p-2 transition shadow focus:outline-none flex items-center justify-center"
                         aria-label="Share on WhatsApp">
                         <i class="fab fa-whatsapp"></i>
@@ -322,362 +311,218 @@
 
 
 
-    <!-- Share Section -->
-
-    <!-- Sticky Mobile Share Buttons -->
-    <div class="fixed bottom-20 left-1/2 -translate-x-1/2 z-40 flex gap-3 md:hidden bg-white rounded-xl shadow-lg px-3 py-2"
-        style="pointer-events: none;">
-        <a href="https://www.facebook.com/sharer/sharer.php?u=https://yourdomain.com/productdetails.html"
-            target="_blank" rel="noopener"
-            class="rounded-full bg-blue-600 text-white p-3 shadow-lg transition hover:bg-blue-700 focus:outline-none flex items-center justify-center"
-            aria-label="Share on Facebook" style="pointer-events: auto;">
-            <i class="fab fa-facebook-f"></i>
-        </a>
-        <a href="https://www.instagram.com/?url=https://yourdomain.com/productdetails.html" target="_blank"
-            rel="noopener"
-            class="rounded-full bg-pink-500 text-white p-3 shadow-lg transition hover:bg-pink-600 focus:outline-none flex items-center justify-center"
-            aria-label="Share on Instagram" style="pointer-events: auto;">
-            <i class="fab fa-instagram"></i>
-        </a>
-        <a href="https://pinterest.com/pin/create/button/?url=https://yourdomain.com/productdetails.html"
-            target="_blank" rel="noopener"
-            class="rounded-full bg-red-500 text-white p-3 shadow-lg transition hover:bg-red-600 focus:outline-none flex items-center justify-center"
-            aria-label="Share on Pinterest" style="pointer-events: auto;">
-            <i class="fab fa-pinterest-p"></i>
-        </a>
-        <a href="https://wa.me/?text=https://yourdomain.com/productdetails.html" target="_blank" rel="noopener"
-            class="rounded-full bg-green-500 text-white p-3 shadow-lg transition hover:bg-green-600 focus:outline-none flex items-center justify-center"
-            aria-label="Share on WhatsApp" style="pointer-events: auto;">
-            <i class="fab fa-whatsapp"></i>
-        </a>
-        <button id="copy-link-btn-mobile"
-            class="rounded-full bg-gray-200 hover:bg-gray-300 text-gray-700 p-3 shadow-lg transition focus:outline-none flex items-center justify-center"
-            aria-label="Copy Link" type="button" style="pointer-events: auto;">
-            <i class="fas fa-link"></i>
-        </button>
-    </div>
-
 
 
 
     <!-- Description -->
-    <section class="w-full mt-10 px-0 md:px-0  ">
-        <div class="max-w-7xl mx-auto py-10 px-4 md:px-8 bg-white rounded-2xl shadow-none border-none">
-            <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6 font-serif"
-                style="font-family: 'DM Serif Text', serif;">
-                Product Description
-            </h2>
-            <!-- Fabric & Material -->
-            <div class="mb-8">
-                <div class="flex items-center gap-3 mb-3">
-                    <i class="fas fa-tshirt text-pink-500"></i>
-                    <span class="text-xl md:text-2xl font-semibold text-gray-900">Fabric & Material</span>
-                </div>
-                <ul class="list-disc pl-6 space-y-2 text-gray-700 text-base md:text-lg">
-                    <li>Premium soft cotton, handwoven by skilled artisans in Bengal.</li>
-                    <li>Intricate threadwork and subtle texture for a luxurious feel.</li>
-                    <li>Lightweight, breathable, and gentle on skin—ideal for all-day wear.</li>
-                    <li>Natural dyes used for vibrant, lasting colors.</li>
-                </ul>
-                <p class="mt-3 text-gray-600">
-                    Each saree is crafted with attention to detail, ensuring comfort and elegance. The fabric’s natural
-                    fibers make it suitable for both festive occasions and daily use.
-                </p>
-            </div>
-            <!-- Product Care -->
-            <div class="mb-8">
-                <div class="flex items-center gap-3 mb-3">
-                    <i class="fas fa-broom text-green-500"></i>
-                    <span class="text-xl md:text-2xl font-semibold text-gray-900">Product Care</span>
-                </div>
-                <ul class="list-disc pl-6 space-y-2 text-gray-700 text-base md:text-lg">
-                    <li>Dry clean recommended to preserve embroidery and color vibrancy.</li>
-                    <li>Hand wash gently in cold water if needed; avoid harsh detergents.</li>
-                    <li>Do not wring or twist; air dry in shade to prevent fading.</li>
-                    <li>Store folded in a cool, dry place away from direct sunlight.</li>
-                </ul>
-                <p class="mt-3 text-gray-600">
-                    Proper care ensures your saree remains beautiful for years. Avoid ironing directly on embroidery—use
-                    a protective cloth if needed.
-                </p>
-            </div>
-            <!-- Design Features -->
-            <div>
-                <div class="flex items-center gap-3 mb-3">
-                    <i class="fas fa-palette text-blue-500"></i>
-                    <span class="text-xl md:text-2xl font-semibold text-gray-900">Design Features</span>
-                </div>
-                <ul class="list-disc pl-6 space-y-2 text-gray-700 text-base md:text-lg">
-                    <li>Traditional Bengali embroidery along the border and pallu.</li>
-                    <li>Elegant motifs inspired by local heritage and nature.</li>
-                    <li>Rich red base with subtle gold accents for a festive look.</li>
-                    <li>Versatile style—perfect for celebrations, office, or casual outings.</li>
-                </ul>
-                <p class="mt-3 text-gray-600">
-                    The saree blends classic artistry with modern comfort, making it a timeless addition to your
-                    wardrobe. Each piece is unique, reflecting the spirit of Bengali craftsmanship.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Reviews -->
-    <section class="max-w-7xl mx-auto px-4 md:px-8 py-10">
-        <!-- Star Rating -->
-        <div class="flex items-center gap-2 mb-6">
-            <div class="flex items-center text-yellow-400 text-xl">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star-half-alt"></i>
-            </div>
-            <span class="font-semibold text-gray-800 text-lg ml-2">4.5</span>
-            <span class="text-gray-500 text-base">from 100 reviews</span>
-        </div>
-        <!-- Reviews List -->
-        <div x-data="{
-            reviews: [
-                {
-                    name: 'Ayesha R.',
-                    rating: 5,
-                    text: 'Absolutely stunning saree! The fabric is so soft and comfortable. Received many compliments at my event.',
-                    long: false
-                },
-                {
-                    name: 'Farhan S.',
-                    rating: 4,
-                    text: 'Beautiful craftsmanship and vibrant color. Delivery was quick. Will buy again!',
-                    long: false
-                },
-                {
-                    name: 'Mita D.',
-                    rating: 4.5,
-                    text: 'Loved the traditional design. The saree feels premium and the packaging was elegant. The only thing I wish was better is the length, but overall very satisfied.',
-                    long: true,
-                    short: 'Loved the traditional design. The saree feels premium and the packaging was elegant...'
-                }
-            ],
-            showAll: false,
-            showMoreMobile: false
-        }" class="mb-8">
-            <!-- Desktop: Show top 3 reviews -->
-            <template x-if="window.innerWidth >= 768">
-                <div>
-                    <template x-for="(review, i) in reviews.slice(0, showAll ? reviews.length : 3)" :key="i">
-                        <div class="bg-gray-50 rounded-lg shadow p-5 mb-4">
-                            <div class="flex items-center gap-2 mb-2">
-                                <span class="font-bold text-pink-700" x-text="review.name"></span>
-                                <div class="flex items-center text-yellow-400 text-base ml-2">
-                                    <template x-for="n in Math.floor(review.rating)">
-                                        <i class="fas fa-star"></i>
-                                    </template>
-                                    <template x-if="review.rating % 1 >= 0.5">
-                                        <i class="fas fa-star-half-alt"></i>
-                                    </template>
-                                </div>
-                            </div>
-                            <div class="text-gray-700 text-base">
-                                <template x-if="review.long">
-                                    <span>
-                                        <span x-show="!review.showFull" x-text="review.short"></span>
-                                        <span x-show="review.showFull" x-text="review.text"></span>
-                                        <button class="text-pink-500 ml-2 text-sm underline"
-                                            @click="review.showFull = !review.showFull"
-                                            x-text="review.showFull ? 'Read less' : 'Read more'"></button>
-                                    </span>
-                                </template>
-                                <template x-if="!review.long">
-                                    <span x-text="review.text"></span>
-                                </template>
-                            </div>
-                        </div>
-                    </template>
-                </div>
-            </template>
-            <!-- Mobile: Show one review at a time -->
-            <template x-if="window.innerWidth < 768">
-                <div>
-                    <div class="bg-gray-50 rounded-lg shadow p-5 mb-4">
-                        <div class="flex items-center gap-2 mb-2">
-                            <span class="font-bold text-pink-700" x-text="reviews[showMoreMobile ? 1 : 0].name"></span>
-                            <div class="flex items-center text-yellow-400 text-base ml-2">
-                                <template x-for="n in Math.floor(reviews[showMoreMobile ? 1 : 0].rating)">
-                                    <i class="fas fa-star"></i>
-                                </template>
-                                <template x-if="reviews[showMoreMobile ? 1 : 0].rating % 1 >= 0.5">
-                                    <i class="fas fa-star-half-alt"></i>
-                                </template>
-                            </div>
-                        </div>
-                        <div class="text-gray-700 text-base">
-                            <template x-if="reviews[showMoreMobile ? 1 : 0].long">
-                                <span>
-                                    <span x-show="!reviews[showMoreMobile ? 1 : 0].showFull"
-                                        x-text="reviews[showMoreMobile ? 1 : 0].short"></span>
-                                    <span x-show="reviews[showMoreMobile ? 1 : 0].showFull"
-                                        x-text="reviews[showMoreMobile ? 1 : 0].text"></span>
-                                    <button class="text-pink-500 ml-2 text-sm underline"
-                                        @click="reviews[showMoreMobile ? 1 : 0].showFull = !reviews[showMoreMobile ? 1 : 0].showFull"
-                                        x-text="reviews[showMoreMobile ? 1 : 0].showFull ? 'Read less' : 'Read more'"></button>
-                                </span>
-                            </template>
-                            <template x-if="!reviews[showMoreMobile ? 1 : 0].long">
-                                <span x-text="reviews[showMoreMobile ? 1 : 0].text"></span>
-                            </template>
-                        </div>
-                    </div>
-                    <button class="text-pink-600 font-semibold underline text-sm mb-4"
-                        @click="showMoreMobile = !showMoreMobile"
-                        x-text="showMoreMobile ? 'Show Previous' : 'Show More'"></button>
-                </div>
-            </template>
-            <!-- Actions -->
-
-        </div>
-
-    </section>
-
-
-    <!-- Releted Products -->
-
-    <section class="max-w-6xl mx-auto px-4 md:px-8 py-10">
-        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6 font-serif"
+    <section class="max-w-3xl mx-auto px-4 md:px-8 py-8 bg-white rounded-lg shadow mb-10">
+        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4 font-serif"
             style="font-family: 'DM Serif Text', serif;">
-            Related Products
+            Product Description
         </h2>
-        <div x-data="{
-            products: [
-                { name: 'Bengali Handwoven Saree – Blue', img: 'assets/hero/3.jpg', price: '৳2590' },
-                { name: 'Traditional Red Blouse', img: 'assets/hero/2.jpg', price: '৳790' },
-                { name: 'Elegant Green Saree', img: 'assets/hero/3.jpg', price: '৳2390' },
-                { name: 'Gold Embroidered Blouse', img: 'assets/hero/5.jpg', price: '৳990' },
-                { name: 'Classic White Saree', img: 'assets/hero/1.jpg', price: '৳2190' },
-                { name: 'Festive Pink Saree', img: 'assets/hero/2.jpg', price: '৳2490' }
-            ],
-            active: 0
-        }">
-            <!-- Desktop Grid -->
-            <div class="hidden md:grid grid-cols-3 lg:grid-cols-4 gap-6">
-                <template x-for="(product, i) in products" :key="i">
-                    <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4 flex flex-col items-center">
-                        <img :src="product.img" :alt="product.name" class="w-40 h-40 object-cover rounded mb-3">
-                        <div class="font-semibold text-gray-900 text-base text-center mb-1" x-text="product.name"></div>
-                        <div class="text-pink-600 font-bold text-lg" x-text="product.price"></div>
-                    </div>
-                </template>
-            </div>
-            <!-- Mobile Carousel -->
-            <div class="md:hidden relative">
-                <div class="flex overflow-x-auto gap-4 pb-2 snap-x snap-mandatory">
-                    <template x-for="(product, i) in products" :key="i">
-                        <div
-                            class="min-w-[70vw] max-w-xs bg-white rounded-lg shadow p-4 flex flex-col items-center snap-center">
-                            <img :src="product.img" :alt="product.name" class="w-36 h-36 object-cover rounded mb-2">
-                            <div class="font-semibold text-gray-900 text-sm text-center mb-1" x-text="product.name">
-                            </div>
-                            <div class="text-pink-600 font-bold text-base" x-text="product.price"></div>
-                        </div>
-                    </template>
-                </div>
-            </div>
+        <div class="text-gray-800 text-base leading-relaxed space-y-4">
+            <p>
+                হাপ সিল্ক সাদা লাল শাড়ী ব্লাউজ সহ সেই স্মৃতি আর ঐতিহ্যকেই নতুনভাবে তুলে ধরেছে আধুনিক ডিজাইনে।
+                এই শাড়ি শুধু একটি পোশাক নয় – এটি আপনার ব্যক্তিত্ব, আপনার রুচি আর আপনার সংস্কৃতির প্রতীক।
+                যে কোনো অনুষ্ঠানে বা বিশেষ দিনে, এই শাড়ি আপনাকে করে তুলবে সবার নজরকাড়া।</p>
+
+            <h3 class="text-xl font-semibold text-pink-600 mt-6 mb-2">স্টাইল টিপস:</h3>
+            <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                <li>রঙিন জুয়েলারি বা গয়না ব্যবহার করলে শাড়ির লাল বর্ডার আরও ফুটে উঠবে।</li>
+                <li>হালকা মেকআপের সঙ্গে পরলে শাড়ি থাকবে চমৎকার হালকা ও মার্জিত লুক।</li>
+                <li>ক্লাসিক হেয়ারস্টাইল বা লো-বেন্ড করা চুলের সঙ্গে পরলে এক্সক্লুসিভ ফিনিশিং পাওয়া যাবে।</li>
+            </ul>
+            <p>
+
+                হালকা ও আরামদায়ক হওয়ায় এটি সারাদিন পরা যায় খুব সহজেই। ঐতিহ্য আর আধুনিকতার মেলবন্ধন এই শাড়িকে করেছে
+                এক্সক্লুসিভ।
+            </p>
         </div>
+    </section>
+    <!-- Core Instruction -->
+
+    <section class="max-w-3xl mx-auto px-4 md:px-8 py-6 bg-white rounded-lg shadow mb-8">
+        <h2 class="text-xl md:text-2xl font-bold text-gray-900 mb-4 font-serif"
+            style="font-family: 'DM Serif Text', serif;">
+            Care Instructions
+        </h2>
+        <ul class="list-disc pl-6 space-y-2 text-gray-700 text-base">
+            <li>আলতো হাতে ধোবেন</li>
+            <li>ব্লিচ ব্যবহার করবেন না</li>
+            <li>কম তাপে আয়রন করবেন</li>
+            <li>শুষ্ক স্থানে সংরক্ষণ করবেন</li>
+        </ul>
     </section>
 
-    <!-- Confirm Order -->
-    <section id="confirmorder" class="max-w-2xl mx-auto mt-10 mb-10 px-4 md:px-0">
-        <div x-data="{
-                name: '',
-                phone: '',
-                address: '',
-                email: '',
-                showMsg: false,
-                errors: {},
-                validate() {
-                    this.errors = {};
-                    if (!this.name.trim()) this.errors.name = 'Name is required.';
-                    if (!/^01[3-9]\d{8}$/.test(this.phone.trim())) this.errors.phone = 'Enter a valid Bangladeshi phone number.';
-                    if (!this.address.trim()) this.errors.address = 'Address is required.';
-                    return Object.keys(this.errors).length === 0;
-                },
-                submit() {
-                    if (this.validate()) {
-                        this.showMsg = true;
-                        setTimeout(() => { this.showMsg = false }, 4000);
-                        this.name = '';
-                        this.phone = '';
-                        this.address = '';
-                        this.email = '';
-                    }
-                }
-            }" class="bg-white rounded-xl shadow p-6">
-            <h2 class="text-xl md:text-2xl font-bold text-gray-900 mb-6 font-serif"
-                style="font-family: 'DM Serif Text', serif;">
-                Confirm Order
-            </h2>
-            <form @submit.prevent="submit" autocomplete="off">
-                <!-- Full Name -->
-                <div class="mb-5 relative">
-                    <input type="text" x-model="name" id="order-name"
-                        class="peer w-full px-4 py-3 rounded-lg border border-pink-300 focus:outline-none focus:ring-2 focus:ring-pink-400 transition font-medium bg-transparent"
-                        required placeholder=" " />
-                    <label for="order-name"
-                        class="absolute left-4 top-2 text-gray-500 bg-white px-1 transition-all duration-200 pointer-events-none peer-focus:-top-4 peer-focus:text-pink-600 peer-focus:text-sm peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 -top-4 text-sm text-pink-600">
-                        Name
-                    </label>
-                    <span class="text-xs text-red-500 mt-1 block" x-text="errors.name"></span>
-                    <span class="block text-xs text-gray-500 mt-1">Please enter your full name for the order.</span>
-                </div>
-                <!-- Phone Number -->
-                <div class="mb-5 relative">
-                    <input type="tel" x-model="phone" id="order-phone"
-                        class="peer w-full px-4 py-3 rounded-lg border border-pink-300 focus:outline-none focus:ring-2 focus:ring-pink-400 transition font-medium bg-transparent"
-                        required placeholder=" " pattern="01[3-9][0-9]{8}" />
-                    <label for="order-phone"
-                        class="absolute left-4 top-2 text-gray-500 bg-white px-1 transition-all duration-200 pointer-events-none peer-focus:-top-4 peer-focus:text-pink-600 peer-focus:text-sm peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 -top-4 text-sm text-pink-600">
-                        Phone
-                    </label>
-                    <span class="text-xs text-red-500 mt-1 block" x-text="errors.phone"></span>
-                    <span class="block text-xs text-gray-500 mt-1">Enter your phone number so we can contact you if
-                        necessary. (Required)</span>
-                </div>
-                <!-- Delivery Address -->
-                <div class="mb-5 relative">
-                    <textarea x-model="address" id="order-address" rows="3"
-                        class="peer w-full px-4 py-3 rounded-lg border border-pink-300 focus:outline-none focus:ring-2 focus:ring-pink-400 transition font-medium bg-transparent resize-none"
-                        required placeholder=" "></textarea>
-                    <label for="order-address"
-                        class="absolute left-4 top-2 text-gray-500 bg-white px-1 transition-all duration-200 pointer-events-none peer-focus:-top-4 peer-focus:text-pink-600 peer-focus:text-sm peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 -top-4 text-sm text-pink-600">
-                        Address
-                    </label>
-                    <span class="text-xs text-red-500 mt-1 block" x-text="errors.address"></span>
-                    <span class="block text-xs text-gray-500 mt-1">Please provide your complete delivery address.
-                        (Required)</span>
-                </div>
-                <!-- Email (Optional) -->
-                <div class="mb-5 relative">
-                    <input type="email" x-model="email" id="order-email"
-                        class="peer w-full px-4 py-3 rounded-lg border border-pink-300 focus:outline-none focus:ring-2 focus:ring-pink-400 transition font-medium bg-transparent"
-                        placeholder=" " />
-                    <label for="order-email"
-                        class="absolute left-4 top-2 text-gray-500 bg-white px-1 transition-all duration-200 pointer-events-none peer-focus:-top-4 peer-focus:text-pink-600 peer-focus:text-sm peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 -top-4 text-sm text-pink-600">
-                        Email (Optional)
-                    </label>
-                    <span class="block text-xs text-gray-500 mt-1">Enter your email to receive order updates.
-                        (Optional)</span>
-                </div>
-                <!-- Confirm Button -->
-                <button type="submit"
-                    class="w-full px-6 py-3 rounded-lg bg-gradient-to-r from-green-400 to-pink-500 text-white font-bold text-lg shadow hover:from-pink-600 hover:to-green-500 transition duration-200 focus:outline-none mb-2">
-                    Confirm Order
-                </button>
-                <!-- Confirmation Message -->
-                <div x-show="showMsg" x-transition class="mt-3 text-green-600 text-center font-semibold">
-                    Thank you for your order! We will contact you shortly.
-                </div>
-            </form>
-        </div>
+    <!-- Return -->
+    <section class="max-w-3xl mx-auto px-4 md:px-8 py-6 bg-white rounded-lg shadow mb-8">
+        <h2 class="text-xl md:text-2xl font-bold text-gray-900 mb-4 font-serif"
+            style="font-family: 'DM Serif Text', serif;">
+            Delivery &amp; Returns
+        </h2>
+        <ul class="list-disc pl-6 space-y-2 text-gray-700 text-base">
+            <li>🚚 সারা বাংলাদেশে হোম ডেলিভারি</li>
+            <li>⏳ ৩–৫ কর্মদিবসের মধ্যে ডেলিভারি</li>
+            <li>✅ শর্তসাপেক্ষ রিটার্ন ও এক্সচেঞ্জ সুবিধা</li>
+        </ul>
     </section>
+
+    <div class="text-center font-bold text-pink-600 mb-4 text-2xl    " id="confirmorder">
+        Order Now /
+    </div>
+    <!-- Confirm Order -->
+
+
+    <form onsubmit="handleSubmit(event)" id="order-form" class="max-w-md mx-auto bg-white p-6 rounded-xl shadow-lg">
+        <!-- Full Name -->
+        <div class="mb-5">
+            <label for="order-name" class="block mb-1 text-gray-800 font-semibold">
+                নাম / Name
+            </label>
+            <input type="text" id="order-name"
+                class="w-full px-4 py-3 rounded-xl border-2 border-pink-300 focus:border-pink-500 focus:ring-2 focus:ring-pink-400 transition font-medium bg-white placeholder-gray-400"
+                required placeholder="আপনার পূর্ণ নাম লিখুন / Enter your full name" />
+            <span class="text-xs text-red-500 mt-1 block" id="error-name"></span>
+        </div>
+
+        <!-- Phone Number -->
+        <div class="mb-5">
+            <label for="order-phone" class="block mb-1 text-gray-800 font-semibold">
+                ফোন নম্বর / Phone
+            </label>
+            <input type="number" id="order-phone"
+                class="w-full px-4 py-3 rounded-xl border-2 border-pink-300 focus:border-pink-500 focus:ring-2 focus:ring-pink-400 transition font-medium bg-white placeholder-gray-400"
+                required placeholder="01XXXXXXXXX" pattern="01[3-9][0-9]{8}" />
+            <span class="text-xs text-red-500 mt-1 block" id="error-phone"></span>
+        </div>
+
+        <!-- Delivery Area Dropdown -->
+        <div class="mb-5">
+            <label for="order-area" class="block mb-1 text-gray-800 font-semibold">
+                ডেলিভারি এলাকা / Delivery Area
+            </label>
+            <select id="order-area"
+                class="w-full px-4 py-3 rounded-xl border-2 border-pink-300 focus:border-pink-500 focus:ring-2 focus:ring-pink-400 transition font-medium bg-white"
+                required>
+                <option value="" disabled selected>এলাকা নির্বাচন করুন / Select Area</option>
+                <option value="dhaka">ঢাকার ভিতরে / Inside Dhaka</option>
+                <option value="outside">ঢাকার বাইরে / Outside Dhaka</option>
+            </select>
+        </div>
+
+        <!-- Delivery Address -->
+        <div class="mb-5">
+            <label for="order-address" class="block mb-1 text-gray-800 font-semibold">
+                ঠিকানা / Address
+            </label>
+            <input type="text" id="order-address"
+                class="w-full px-4 py-3 rounded-xl border-2 border-pink-300 focus:border-pink-500 focus:ring-2 focus:ring-pink-400 transition font-medium bg-white placeholder-gray-400"
+                required placeholder="আপনার সম্পূর্ণ ঠিকানা লিখুন / Enter your address" />
+            <span class="text-xs text-red-500 mt-1 block" id="error-address"></span>
+        </div>
+
+        <!-- Email (Optional) -->
+        <div class="mb-5">
+            <label for="order-email" class="block mb-1 text-gray-800 font-semibold">
+                ইমেইল (ঐচ্ছিক) / Email (Optional)
+            </label>
+            <input type="email" id="order-email"
+                class="w-full px-4 py-3 rounded-xl border-2 border-pink-300 focus:border-pink-500 focus:ring-2 focus:ring-pink-400 transition font-medium bg-white placeholder-gray-400"
+                placeholder="আপনার ইমেইল দিন / Enter your email" />
+        </div>
+
+        <div id="order-summary" class="max-w-md mx-auto bg-white p-6 rounded-xl shadow-lg mb-6">
+            <h3 class="text-lg font-bold text-gray-900 mb-3">Order Details</h3>
+            <div class="flex flex-col gap-2 text-base text-gray-700">
+                <div class="flex justify-between">
+                    <span>Product:</span>
+                    <span>হাপ সিল্ক সাদা লাল শাড়ী ব্লাউজ সহ</span>
+                </div>
+                <div class="flex justify-between">
+                    <span>Price:</span>
+                    <span id="unit-price">৳850</span>
+                </div>
+                <!-- Quantity Selector -->
+                <div class="flex items-center justify-start gap-4 mb-6">
+                    <label for="quantity" class="font-semibold text-base text-gray-800">Quantity:</label>
+                    <button type="button" id="qty-decrease"
+                        class="px-3 py-1 rounded-lg bg-pink-100 text-pink-600 font-bold text-lg hover:bg-pink-200 transition focus:outline-none shadow"
+                        aria-label="Decrease quantity">
+                        -
+                    </button>
+                    <input id="quantity" type="number" min="1" value="1"
+                        class="w-12 text-center px-2 py-1 rounded-lg border border-pink-300 focus:outline-none focus:ring-2 focus:ring-pink-400 transition font-bold text-base" />
+                    <button type="button" id="qty-increase"
+                        class="px-3 py-1 rounded-lg bg-pink-100 text-pink-600 font-bold text-lg hover:bg-pink-200 transition focus:outline-none shadow"
+                        aria-label="Increase quantity">
+                        +
+                    </button>
+                </div>
+                <div class="flex justify-between font-semibold">
+                    <span>Total:</span>
+                    <span id="order-summary-total">৳850</span>
+                </div>
+                <div class="flex justify-between font-semibold">
+                    <span>Delivery Charge:</span>
+                    <span id="delivery-charge">৳0</span>
+                </div>
+                <div class="flex justify-between font-bold text-pink-600">
+                    <span>Sub Total:</span>
+                    <span id="order-summary-subtotal">৳850</span>
+                </div>
+            </div>
+        </div>
+        <script>
+            const unitPrice = 850;
+            const qtyInput = document.getElementById('quantity');
+            const totalSpan = document.getElementById('order-summary-total');
+            const areaSelect = document.getElementById('order-area');
+            const deliveryChargeSpan = document.getElementById('delivery-charge');
+            const subTotalSpan = document.getElementById('order-summary-subtotal');
+
+            function getDeliveryCharge() {
+                if (areaSelect.value === 'dhaka') return 80;
+                if (areaSelect.value === 'outside') return 150;
+                return 0;
+            }
+
+            function updateTotal() {
+                const qty = Math.max(1, Number(qtyInput.value));
+                const total = unitPrice * qty;
+                totalSpan.textContent = '৳' + total;
+                const deliveryCharge = getDeliveryCharge();
+                deliveryChargeSpan.textContent = '৳' + deliveryCharge;
+                subTotalSpan.textContent = '৳' + (total + deliveryCharge);
+            }
+
+            document.getElementById('qty-increase').onclick = function () {
+                qtyInput.value = Math.max(1, Number(qtyInput.value) + 1);
+                updateTotal();
+            };
+            document.getElementById('qty-decrease').onclick = function () {
+                qtyInput.value = Math.max(1, Number(qtyInput.value) - 1);
+                updateTotal();
+            };
+            qtyInput.oninput = function () {
+                qtyInput.value = Math.max(1, Number(qtyInput.value));
+                updateTotal();
+            };
+            areaSelect.onchange = function () {
+                updateTotal();
+            };
+            updateTotal();
+        </script>
+        <!-- Confirm Button -->
+        <button type="submit"
+            class="w-full px-6 py-3 rounded-xl bg-gradient-to-r from-green-400 to-pink-500 text-white font-bold text-lg shadow hover:from-pink-600 hover:to-green-500 transition duration-200 focus:outline-none mb-2">
+            অর্ডার কনফার্ম করুন / Confirm Order
+        </button>
+
+        <!-- Confirmation Message -->
+        <div id="show-msg" class="mt-3 text-green-600 text-center font-semibold" style="display: none;">
+            ধন্যবাদ! আপনার অর্ডার গ্রহণ করা হয়েছে। / Thank you for your order! We will contact you shortly.
+        </div>
+    </form>
 
 
     <!-- Footer -->
@@ -690,7 +535,8 @@
                     Sabiha
                 </h3>
                 <p class="text-pink-100 max-w-xs">
-                    Embrace Elegance with Timeless Bengali Apparel. Handcrafted Sarees, Three-Pieces &amp; Two-Pieces,
+                    Embrace Elegance with Timeless Bengali Apparel. Handcrafted Sarees, Three-Pieces &amp;
+                    Two-Pieces,
                     Made for
                 </p>
             </div>
@@ -760,7 +606,7 @@
     </footer>
 
     <!-- JS -->
-     <script src="js/order.js"></script>
+    <script src="js/order.js"></script>
     <script src="js/products.js"></script>
 
 </body>
